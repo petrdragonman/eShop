@@ -1,0 +1,43 @@
+.card {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid orange;
+  border-radius: 6px;
+  .img {
+    width: 160px;
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      display: flex;
+      font-size: 1em;
+      text-align: justify;
+    }
+    .price {
+      display: flex;
+      font-size: 1em;
+      color: orange;
+    }
+    .shipping {
+      display: flex;
+      font-size: 0.8em;
+    }
+  }
+
+  .btn {
+    width: 80%;
+    height: 26px;
+    border: 1px solid orange;
+    border-radius: 6px;
+    color: orange;
+    background-color: white;
+  }
+}
