@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.26em;
+        border: 1px solid grey;
+        border-radius: 2px;
+        .value {
+            width: 20px;
+            font-size: 1em;
+        }  
+    }
+}
