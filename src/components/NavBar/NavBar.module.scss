@@ -1,0 +1,27 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.6em;
+    max-width: 100%;
+}
+
+.container {
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2em;
+}
+
+.link {
+    color: #f49e2d;
+    &:visited {
+        &:hover {
+            color: #f47106;
+            transform: scale(1.04);
+        }
+        color: #f49e2d;
+    }
+    &_active {
+        text-decoration: underline; 
+    }
+}

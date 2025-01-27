@@ -57,7 +57,7 @@ You should be able to remove products from the cart
 
 ## Known issues
 
--   not fully functional, only home, product and my cart pages
+-   not fully functional app, only for learning purporse.
 
 ## Future Goals
 
