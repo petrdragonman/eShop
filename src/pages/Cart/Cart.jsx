@@ -1,7 +1,10 @@
 import clasess from "./Cart.module.scss";
 import Counter from "../../components/Counter/Counter";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
+  //navigate('./');
   return (
     <section className={clasess.wrapper}>
         <p>Shopping Cart</p>
@@ -13,7 +16,7 @@ const Cart = () => {
       </article>
       <span className={clasess.total}>$350.00 AUD</span>
       <form>
-        <button className={clasess.checkout}>Check Out</button>
+        <button className={clasess.checkout} onClick={() => navigate('/')}>Check Out</button>
       </form>
     </section>
   );

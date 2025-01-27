@@ -1,13 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import classes from "./ProductDetailCard.module.scss";
 
 const ProductDetailCard = () => {
+  const navigate = useNavigate();
   return (
     <article className={classes.card}>
       <img src="./cd4.jpg" alt="merlin CD4" className={classes.img} />
       <span>MERLIN CD4</span>
       <span className={classes.price}>$350.00 AUD</span>
       <form className={classes.form}>
-        <button className={classes.btn}>Add to Cart</button>
+        <button className={classes.btn} onClick={() => navigate('/cart')}>Add to Cart</button>
       </form>
       <article className={classes.productInfo}>
         <span className={classes.heading}>Product Information</span>
