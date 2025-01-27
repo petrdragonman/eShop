@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
+import Message from "../Message/Message";
 import classes from "./ProductCard.module.scss";
+import { useState } from "react";
 
 const ProductCard = () => {
+  const navigate = useNavigate();
+
   return (
     <article className={classes.card}>
       <img src="./zj.jpg" alt="wooden paddle" className={classes.img} />
@@ -13,7 +18,7 @@ const ProductCard = () => {
         <p className={classes.price}>$105.00</p>
         <p className={classes.shipping}>shiping calculated at checkout</p>
       </section>
-      <button className={classes.btn}>view more</button>
+      <button className={classes.btn} onClick={() => navigate('/product')}>view more</button>
     </article>
   );
 };
