@@ -14,7 +14,9 @@ const ProductCard = ({productData}) => {
         </p>
         <p className={classes.price}>{`$${productData.price} AUD`}</p>
       </section>
-      <button className={classes.btn} onClick={() => navigate(`/products/${productData.id}`)}>view more</button>
+      <button className={classes.btn} onClick={() => {
+        return navigate(`/products/${productData.id}`);
+      }}>view more</button>
       {/* <Link to={`/products/${productData.id}`}> Get more info</Link> */}
     </article>
   );
