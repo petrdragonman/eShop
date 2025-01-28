@@ -3,11 +3,11 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+const firabaseApiKey=import.meta.env.VITE_FIREBASE_API_KEY;
 
 // Your web app's Firebase configuration
-console.log('firebase api key: ', import.meta.env.VITE_apiKey )
 const firebaseConfig = {
-  apiKey: "AIzaSyAaqROx6EB8oUId8YIyD3ECwzAaklCrt3o",
+  apiKey: firabaseApiKey,
   authDomain: "eshop-c47d7.firebaseapp.com",
   projectId: "eshop-c47d7",
   storageBucket: "eshop-c47d7.firebasestorage.app",
