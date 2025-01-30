@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
 import { getAllProducts } from "../services/product-services";
 import { useQuery } from "../hooks/useQuery";
 

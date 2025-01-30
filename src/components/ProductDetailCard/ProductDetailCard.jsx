@@ -1,10 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import classes from "./ProductDetailCard.module.scss";
-import Cart from "../../pages/Cart/Cart";
+import { CartContext } from "../../context/CartContextProvider";
+import { useContext } from "react";
+//import Cart from "../../pages/Cart/Cart";
 
 const ProductDetailCard = ({ productData }) => {
   const navigate = useNavigate();
+  const {cart, setCart} = useContext(CartContext);
   //console.log(productData);
+
+  const handleAddToCartClick = () => {
+    //console.log("adding to cart: ", productData.name);
+    setCart([...cart, {...productData, quantity: 1}]);
+    navigate("/cart");
+  };
+  //console.log(cart);
+
   return (
     <article className={classes.card}>
       <img
@@ -16,11 +27,11 @@ const ProductDetailCard = ({ productData }) => {
         {productData.brand} {productData.name}
       </span>
       <span className={classes.price}>{`$${productData.price} AUD`}</span>
-      <form className={classes.form}>
-        <button className={classes.btn} onClick={() => navigate("/cart")}>
+      {/* <form className={classes.form}> */}
+        <button className={classes.btn} onClick={handleAddToCartClick}>
           Add to Cart
         </button>
-      </form>
+      {/* </form> */}
       <article className={classes.productInfo}>
         <span className={classes.heading}>Product Information</span>
         <span className={classes.idbf}>DBF 202a Spec approved.</span>
