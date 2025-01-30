@@ -1,22 +1,40 @@
 import clasess from "./Cart.module.scss";
-import Counter from "../../components/Counter/Counter";
-import { useNavigate } from "react-router-dom";
 
-const Cart = ({productData}) => {
+import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartContextProvider";
+import { useContext } from "react";
+import CartProductList from "../../components/CartProductList/CartProductList";
+
+const Cart = () => {
   const navigate = useNavigate();
-  //navigate('./');
+  const { cart, setCart } = useContext(CartContext);
   return (
     <section className={clasess.wrapper}>
-        <p>Shopping Cart</p>
-      
-      <form>
-        <button className={clasess.checkout} onClick={() => navigate('/')}>Check Out</button>
-      </form>
+      <p>Shopping Cart</p>
+
+      <CartProductList cartItems={cart} />
+      {/* <span className={clasess.total}>{`TOTAL: $${productData.price} AUD`}</span> */}
+      {/* <form> */}
+      <button className={clasess.checkout} onClick={() => navigate("/")}>
+        Check Out
+      </button>
+      {/* </form> */}
     </section>
   );
 };
 export default Cart;
 
+/**
+ * I will need in cart to be an array of cartitem objects with following
+ * productID
+ * quantity
+ * size
+ * grip
+ * cart = [
+ *  {id: 'abc123', quantity: 1, size: '49'}
+ * ]
+ *
+ */
 
 /**
  * <article className={clasess.card}>
