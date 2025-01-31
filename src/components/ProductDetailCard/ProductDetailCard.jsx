@@ -2,19 +2,25 @@ import { useNavigate } from "react-router-dom";
 import classes from "./ProductDetailCard.module.scss";
 import { CartContext } from "../../context/CartContextProvider";
 import { useContext } from "react";
+import addToCart from "../../container/addToCart";
 //import Cart from "../../pages/Cart/Cart";
 
 const ProductDetailCard = ({ productData }) => {
   const navigate = useNavigate();
   const {cart, setCart} = useContext(CartContext);
-  //console.log(productData);
+  console.log(cart);
 
   const handleAddToCartClick = () => {
-    //console.log("adding to cart: ", productData.name);
-    setCart([...cart, {...productData, quantity: 1}]);
+    const existingItem = cart.find((product) => product.id === productData.id);
+    if(existingItem){
+      setCart(
+        cart.map((item) => item.id === productData.id ? {...item, quantity: item.quantity + 1} : item )
+      );
+    } else {
+      setCart([...cart, {...productData, quantity: 1}]);
+    }
     navigate("/cart");
   };
-  console.log(cart);
 
   return (
     <article className={classes.card}>
