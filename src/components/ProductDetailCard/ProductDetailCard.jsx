@@ -14,7 +14,7 @@ const ProductDetailCard = ({ productData }) => {
     setCart([...cart, {...productData, quantity: 1}]);
     navigate("/cart");
   };
-  //console.log(cart);
+  console.log(cart);
 
   return (
     <article className={classes.card}>
