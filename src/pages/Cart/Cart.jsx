@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContextProvider";
 import { useContext } from "react";
 import CartProductList from "../../components/CartProductList/CartProductList";
+import calculateTotal from "../../container/calculateCartTotal";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Cart = () => {
       <p>Shopping Cart</p>
 
       <CartProductList cartItems={cart} />
-      {/* <span className={clasess.total}>{`TOTAL: $${productData.price} AUD`}</span> */}
+      <span className={clasess.total}>{`TOTAL: $${calculateTotal({cart})} AUD`}</span>
       {/* <form> */}
       <button className={clasess.checkout} onClick={() => navigate("/")}>
         Check Out
