@@ -33,15 +33,31 @@
   .form {
     width: 100%;
   }
-  .btn {
-    width: 90%;
-    height: 26px;
-    border: 1px solid orange;
-    border-radius: 6px;
-    color: orange;
-    background-color: white;
-    font-size: 0.9em;
+  // .btn {
+  //   width: 90%;
+  //   height: 22px;
+  //   border: 1px solid orange;
+  //   border-radius: 6px;
+  //   color: orange;
+  //   background-color: white;
+  //   font-size: 0.8em;
+  // }
+  .removeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+    &__text {
+      display: flex;
+      font-size: 0.8em;
+      color: #F65A06;
+    }
+    &__image {
+      display: flex;
+      width: 14px;
+    }
   }
+  
 }
 .total {
     padding-top: 40px;
