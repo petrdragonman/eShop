@@ -8,7 +8,7 @@ import addToCart from "../../container/addToCart";
 const ProductDetailCard = ({ productData }) => {
   const navigate = useNavigate();
   const {cart, setCart} = useContext(CartContext);
-  console.log(cart);
+  //console.log(cart);
 
   const handleAddToCartClick = () => {
     const existingItem = cart.find((product) => product.id === productData.id);
