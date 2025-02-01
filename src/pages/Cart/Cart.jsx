@@ -9,6 +9,7 @@ import calculateTotal from "../../container/calculateCartTotal";
 const Cart = () => {
   const navigate = useNavigate();
   const { cart, setCart } = useContext(CartContext);
+  //console.log("re-render Cart page....", cart)
   return (
     <section className={clasess.wrapper}>
       <p>Shopping Cart</p>
