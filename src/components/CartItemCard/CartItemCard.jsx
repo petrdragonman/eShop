@@ -5,17 +5,7 @@ import { useContext, useState } from "react";
 
 
 const CartItemCard = ({ productData }) => {
-  const id = productData.id;
-  const [count, setCount] = useState(productData.quantity);
-  const [counterValue, setCounterValue] = useState(productData.quatity);
   const { cart, setCart } = useContext(CartContext);
-  //console.log(productData.quantity);
-  //console.log("re-rendering - 1..........", count);
-  //console.log("re-rendering - 2 ..........", cart);
-  //console.log("re-rendering - 3 ..........", productData);
-  const initialCountValue = productData.quantity;
-  //console.log(typeof count);
-  //console.log("initial value: ", initialCountValue);
   const handleRemoveFromCard = () => {
     const rest = cart.filter((item) => item.id !== productData.id);
     setCart([...rest]);
@@ -31,14 +21,11 @@ const CartItemCard = ({ productData }) => {
         {productData.brand} {productData.name}
       </span>
       <span className={classes.price}>{`$${productData.price} AUD`}</span>
-      <span className={classes.price}>{`$${productData.price * count} AUD`}</span>
+      <span className={classes.price}>{`$${productData.price * productData.quantity} AUD`}</span>
       <Counter
-        count={count}
-        setCount={setCount}
         id={productData.id}
-        inititialValue={initialCountValue}
+        inititialValue={productData.quantity}
       />
-      {/* {productData.counter == 10 && <Message message="If you are looking for bulk purchse, please contact us on....." />} */}
       <section className={classes.removeContainer} onClick={handleRemoveFromCard}>
         <span className={classes.removeContainer__text}>remove from cart </span>
         <img src='./delete.svg' className={classes.removeContainer__image} />
