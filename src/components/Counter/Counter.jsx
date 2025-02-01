@@ -4,16 +4,9 @@ import Button from "../Button/Button";
 import classes from "./Counter.module.scss";
 import Message from "../Message/Message";
 
-const Counter = ({ count, setCount, id, inititialValue}) => {
-  //console.log(typeof inititialValue);
-  console.log(inititialValue);
-  //const [count, setCount] = useState(1);
+const Counter = ({id, inititialValue}) => {
+  const [count, setCount] = useState(inititialValue);
   const {cart, setCart} = useContext(CartContext);
-  //const remaining = capacity - count;
-  //console.log("cart : ", cart);
-  //console.log("count: ", count);
-  //console.log("in counter - stock: ", capacity);
-  //setCounterValue(count)
   const handleDecreaseClick = () => {
     if(count > 0) {
       setCount(count - 1);
@@ -43,7 +36,6 @@ const Counter = ({ count, setCount, id, inititialValue}) => {
           </Button>
           <span className={classes.value}>{count}</span>
           <Button
-            //variant="grey"
             onClick={handleIncreaseClick}
             style={{ width: "20px" }}
           >

@@ -2,14 +2,12 @@ import { useNavigate } from "react-router-dom";
 import classes from "./ProductDetailCard.module.scss";
 import { CartContext } from "../../context/CartContextProvider";
 import { useContext } from "react";
-import addToCart from "../../container/addToCart";
+//import addToCart from "../../container/addToCart";
 //import Cart from "../../pages/Cart/Cart";
 
 const ProductDetailCard = ({ productData }) => {
   const navigate = useNavigate();
   const {cart, setCart} = useContext(CartContext);
-  //console.log(cart);
-
   const handleAddToCartClick = () => {
     const existingItem = cart.find((product) => product.id === productData.id);
     if(existingItem){
@@ -33,11 +31,9 @@ const ProductDetailCard = ({ productData }) => {
         {productData.brand} {productData.name}
       </span>
       <span className={classes.price}>{`$${productData.price} AUD`}</span>
-      {/* <form className={classes.form}> */}
         <button className={classes.btn} onClick={handleAddToCartClick}>
           Add to Cart
         </button>
-      {/* </form> */}
       <article className={classes.productInfo}>
         <span className={classes.heading}>Product Information</span>
         <span className={classes.idbf}>DBF 202a Spec approved.</span>
@@ -48,19 +44,3 @@ const ProductDetailCard = ({ productData }) => {
 };
 
 export default ProductDetailCard;
-
-//http://localhost:5173/burnwater.jpg
-
-/**
- *  <button 
-        className={classes.btn} 
-        onClick={() => navigate('/cart')}
-        >Add to Cart
-        </button>
-
-    <button 
-        className={classes.btn} 
-        onClick={<Cart productData={productData} />}
-        >Add to Cart
-        </button>    
- */
