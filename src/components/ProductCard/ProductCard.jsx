@@ -12,12 +12,14 @@ const ProductCard = ({productData}) => {
         <p className={classes.title}>
           {productData.description}
         </p>
-        <p className={classes.price}>{`$${productData.price} AUD`}</p>
+        
       </section>
-      <button className={classes.btn} onClick={() => {
-        return navigate(`/products/${productData.id}`);
-      }}>view more</button>
-      {/* <Link to={`/products/${productData.id}`}> Get more info</Link> */}
+      <section className={classes.control}>
+        <p className={classes.price}>{`$${productData.price} AUD`}</p>
+        <button className={classes.btn} onClick={() => {
+          return navigate(`/products/${productData.id}`);
+        }}>view more</button>
+      </section>
     </article>
   );
 };
