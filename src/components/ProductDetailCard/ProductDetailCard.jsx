@@ -1,30 +1,79 @@
 import { useNavigate } from "react-router-dom";
 import classes from "./ProductDetailCard.module.scss";
+import { CartContext } from "../../context/CartContextProvider";
+import { useContext, useState } from "react";
+import Carousel from "../Carousel/Carousel";
+import RadioButton from "../RadioButton/RadioButton";
+//import addToCart from "../../container/addToCart";
+//import Cart from "../../pages/Cart/Cart";
 
-const ProductDetailCard = () => {
+const ProductDetailCard = ({ productData }) => {
+  const [grip, setGrip] = useState('t-grip');
   const navigate = useNavigate();
+  const { cart, setCart } = useContext(CartContext);
+  console.log("cart: ", cart);
+  console.log("producData: ", productData);
+  console.log(grip);
+
+  // the line 24 item.id ===> works for t-grip
+  const handleAddToCartClick = () => {
+    const existingItem = cart.find((product) => product.id === productData.id && product.handle === grip);
+    if (existingItem) {
+      setCart(
+        cart.map((item) =>
+          item.id === productData.id && item.handle === grip
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...productData, quantity: 1, handle: grip }]);
+    }
+    navigate("/cart");
+  };
+
   return (
     <article className={classes.card}>
-      <img src="./cd4.jpg" alt="merlin CD4" className={classes.img} />
-      <span>MERLIN CD4</span>
-      <span className={classes.price}>$350.00 AUD</span>
-      <form className={classes.form}>
-        <button className={classes.btn} onClick={() => navigate('/cart')}>Add to Cart</button>
-      </form>
+      {/* <img
+        src={productData.imgUrl}
+        alt={productData.name}
+        className={classes.img}
+      /> */}
+      <Carousel images={productData.productImages} />
+      <span>
+        {productData.brand} {productData.name}
+      </span>
+      <RadioButton setGrip={setGrip}/>
+      <span className={classes.price}>{`$${productData.price} AUD`}</span>
+      <button className={classes.btn} onClick={handleAddToCartClick}>
+        Add to Cart
+      </button>
       <article className={classes.productInfo}>
         <span className={classes.heading}>Product Information</span>
-        <span className={classes.idbf}>DBF 202a Spec approved. Merlin Paddles are designed in Australia.</span>
-        <span className={classes.item}>
-          The CD4 Series is the next generation in the Merlin Paddle series. It
-          is lighter, sharper and smarter than a lot of other IDBF spec paddles
-          on the market today. The aerospace, thermoplastic core and flat woven
-          carbon make this paddle lighter and tougher. The CD4 series has the
-          sharpest bottom edge that is allowed by IDBF, which means you get a
-          paddle with a whisper clean entry and exit.
-        </span>
+        <span className={classes.idbf}>DBF 202a Spec approved.</span>
+        <span className={classes.item}>{productData.description}</span>
       </article>
     </article>
   );
 };
 
 export default ProductDetailCard;
+
+
+/***
+ * const handleAddToCartClick = () => {
+    const existingItem = cart.find((product) => product.id === productData.id);
+    if (existingItem) {
+      setCart(
+        cart.map((item) =>
+          item.id === productData.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...productData, quantity: 1 }]);
+    }
+    navigate("/cart");
+  };
+ */

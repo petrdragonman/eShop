@@ -1,9 +1,7 @@
-
 .wrapper {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     gap: 10px; 
 }
 .card {
@@ -27,6 +25,12 @@
     text-align: justify;
     color: #777777;
   }
+  .grip {
+    display: flex;
+    font-size: 0.8em;
+    text-align: justify;
+    color: #777777;
+  }
   .price {
     display: flex;
     font-size: 1em;
@@ -35,20 +39,27 @@
   .form {
     width: 100%;
   }
-  .btn {
-    width: 90%;
-    height: 26px;
-    border: 1px solid orange;
-    border-radius: 6px;
-    color: orange;
-    background-color: white;
-    font-size: 0.9em;
+  .removeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+    &__text {
+      display: flex;
+      font-size: 0.8em;
+      color: #F65A06;
+    }
+    &__image {
+      display: flex;
+      width: 14px;
+    }
   }
+  
 }
 .total {
     padding-top: 40px;
     display: flex;
-    font-size: 1em;
+    font-size: 1.2em;
     color: orange;
     font-weight: 500;
 }
