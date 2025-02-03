@@ -13,9 +13,9 @@ const NavBar = () => {
                 </NavLink>
             </section>
             <section className={classes.container}>
-                <NavLink className={linkStyles} to="Product">
+                {/* <NavLink className={linkStyles} to="Product">
                     Product
-                </NavLink>
+                </NavLink> */}
                 <NavLink className={linkStyles} to="Cart">
                     Cart
                 </NavLink>

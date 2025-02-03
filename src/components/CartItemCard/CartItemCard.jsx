@@ -7,8 +7,11 @@ import { useContext, useState } from "react";
 const CartItemCard = ({ productData }) => {
   const { cart, setCart } = useContext(CartContext);
   const handleRemoveFromCard = () => {
-    const rest = cart.filter((item) => item.id !== productData.id);
-    setCart([...rest]);
+    const itemToRemove = cart.filter((item) => (item.id === productData.id && item.handle === productData.handle));
+    const rest = cart.filter((item) => item !== itemToRemove);
+    const indexToRemove = cart.findIndex((item) => (item.id === productData.id && item.handle === productData.handle));
+    cart.splice(indexToRemove, 1);
+    setCart([...cart]);
   };
   return (
     <article className={classes.card}>
