@@ -1,0 +1,30 @@
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px ;
+}
+.productImg {
+    //width: 90%;
+    height: 100%;
+}
+.productImg_hidden {
+    display: none;
+}
+.caret {
+    position: absolute;
+    width: 10px;
+}
+.caret_left {
+    //position: absolute;
+    left: 0px;
+    //width: 10px;
+}
+.caret_right {
+    //position: absolute;
+    right: 0px;
+    //width: 10px;
+    transform: scale(-1, -1);
+}

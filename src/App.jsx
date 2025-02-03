@@ -26,7 +26,7 @@ function App() {
               }
             />
             <Route path="/products/:id" element={<ProductPage />} />
-            <Route path="/product" element={<Product />} />
+            {/* <Route path="/product" element={<Product />} /> */}
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </CartContextProvider>
@@ -36,3 +36,12 @@ function App() {
 }
 
 export default App;
+
+
+/**
+ * productImages = [
+ *  "http://localhost:5173/hornet.jpg",
+ *  "http://localhost:5173/t-grip.jpg",
+ *  "http://localhost:5173/palm-grip.jpg"
+ * ];
+ */
