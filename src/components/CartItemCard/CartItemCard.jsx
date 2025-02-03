@@ -23,7 +23,7 @@ const CartItemCard = ({ productData }) => {
       <span className={classes.title}>
         {productData.brand} {productData.name}
       </span>
-      {/* <span className={classes.price}>{`$${productData.price} AUD`}</span> */}
+      <span className={classes.grip}>{`with ${productData.handle}`}</span>
       <span className={classes.price}>{`$${productData.price * productData.quantity} AUD`}</span>
       <Counter
         id={productData.id}

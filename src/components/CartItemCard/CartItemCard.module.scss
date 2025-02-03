@@ -25,6 +25,12 @@
     text-align: justify;
     color: #777777;
   }
+  .grip {
+    display: flex;
+    font-size: 0.8em;
+    text-align: justify;
+    color: #777777;
+  }
   .price {
     display: flex;
     font-size: 1em;
@@ -33,15 +39,6 @@
   .form {
     width: 100%;
   }
-  // .btn {
-  //   width: 90%;
-  //   height: 22px;
-  //   border: 1px solid orange;
-  //   border-radius: 6px;
-  //   color: orange;
-  //   background-color: white;
-  //   font-size: 0.8em;
-  // }
   .removeContainer {
     display: flex;
     justify-content: center;

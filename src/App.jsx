@@ -26,7 +26,6 @@ function App() {
               }
             />
             <Route path="/products/:id" element={<ProductPage />} />
-            {/* <Route path="/product" element={<Product />} /> */}
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </CartContextProvider>
