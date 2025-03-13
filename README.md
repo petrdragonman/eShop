@@ -1,4 +1,4 @@
-# FakeOS
+# eShop
 
 ## Demo & Snippets
 
